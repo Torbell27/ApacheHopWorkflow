@@ -2,7 +2,7 @@
   "variables" : [
     {
       "name" : "POSTGRES_HOSTNAME",
-      "value" : "",
+      "value" : "localhost",
       "description" : "Hostname for database connection Postgres"
     },
     {
