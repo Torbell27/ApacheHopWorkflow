@@ -1,0 +1,29 @@
+{
+  "variables" : [
+    {
+      "name" : "POSTGRES_HOSTNAME",
+      "value" : "",
+      "description" : "Hostname for database connection Postgres"
+    },
+    {
+      "name" : "POSTGRES_PORT",
+      "value" : "5432",
+      "description" : "Port for database connection Postgres"
+    },
+    {
+      "name" : "POSTGRES_DATABASE",
+      "value" : "postgres",
+      "description" : "Database name for database connection Postgres"
+    },
+    {
+      "name" : "POSTGRES_USERNAME",
+      "value" : "postgres",
+      "description" : "Username for database connection Postgres"
+    },
+    {
+      "name" : "POSTGRES_PASSWORD",
+      "value" : "qwerty",
+      "description" : "Password for database connection Postgres"
+    }
+  ]
+}
