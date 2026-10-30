@@ -4,7 +4,7 @@
     "POSTGRESQL": {
       "sshTunnelPort": "22",
       "sshTunnelUsePrivateKey": false,
-      "databaseName": "postgres",
+      "databaseName": "uk_product_intelligence",
       "pluginId": "POSTGRESQL",
       "sshTunnelEnabled": false,
       "accessType": 0,

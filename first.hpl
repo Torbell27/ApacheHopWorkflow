@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
+    <pipeline_version/>
     <capture_transform_performance>N</capture_transform_performance>
     <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
     <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
     <pipeline_type>Normal</pipeline_type>
-    <pipeline_status>-1</pipeline_status>
+    <pipeline_status>0</pipeline_status>
     <parameters/>
-    <name>New pipeline</name>
+    <name>first</name>
     <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
     <created_user>-</created_user>
     <modified_user>-</modified_user>
     <created_date>2026/10/21 16:48:09.614</created_date>
@@ -24,7 +27,7 @@
     <separator>,</separator>
     <enclosure>"</enclosure>
     <buffer_size>50000</buffer_size>
-    <lazy_conversion>N</lazy_conversion>
+    <lazy_conversion>Y</lazy_conversion>
     <add_filename_result>N</add_filename_result>
     <parallel>N</parallel>
     <encoding>UTF-8</encoding>
@@ -36,7 +39,7 @@
         <name>product_id</name>
         <length>15</length>
         <type>String</type>
-        <format>#</format>
+        <format/>
         <trim_type>none</trim_type>
         <precision>0</precision>
         <currency>$</currency>
@@ -112,8 +115,8 @@
       <field>
         <name>price</name>
         <length>15</length>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>1</precision>
         <currency>$</currency>
@@ -134,8 +137,8 @@
       <field>
         <name>original_price</name>
         <length>15</length>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>1</precision>
         <currency>$</currency>
@@ -156,8 +159,8 @@
       <field>
         <name>discount_pct</name>
         <length>15</length>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>1</precision>
         <currency>$</currency>
@@ -167,8 +170,8 @@
       <field>
         <name>price_usd</name>
         <length>15</length>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>1</precision>
         <currency>$</currency>
@@ -212,7 +215,7 @@
         <name>category_id</name>
         <length>15</length>
         <type>String</type>
-        <format>#</format>
+        <format/>
         <trim_type>none</trim_type>
         <precision>0</precision>
         <currency>$</currency>
@@ -222,7 +225,7 @@
       <field>
         <name>in_stock</name>
         <length>-1</length>
-        <type>Boolean</type>
+        <type>String</type>
         <format/>
         <trim_type>none</trim_type>
         <precision>-1</precision>
@@ -233,8 +236,8 @@
       <field>
         <name>stock_indicator</name>
         <length>15</length>
-        <type>Integer</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>0</precision>
         <currency>$</currency>
@@ -244,8 +247,8 @@
       <field>
         <name>review_count</name>
         <length>15</length>
-        <type>Integer</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>0</precision>
         <currency>$</currency>
@@ -255,8 +258,8 @@
       <field>
         <name>rating</name>
         <length>15</length>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>1</precision>
         <currency>$</currency>
@@ -266,8 +269,8 @@
       <field>
         <name>color_count</name>
         <length>15</length>
-        <type>Integer</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>0</precision>
         <currency>$</currency>
@@ -294,13 +297,13 @@
         <precision>-1</precision>
         <currency>$</currency>
         <decimal>.</decimal>
-        <group>,</group>
+        <group>|</group>
       </field>
       <field>
         <name>image_count</name>
         <length>15</length>
-        <type>Integer</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>0</precision>
         <currency>$</currency>
@@ -311,7 +314,7 @@
         <name>seller_store_id</name>
         <length>15</length>
         <type>String</type>
-        <format>#</format>
+        <format/>
         <trim_type>none</trim_type>
         <precision>0</precision>
         <currency>$</currency>
@@ -321,8 +324,8 @@
       <field>
         <name>created_date</name>
         <length>-1</length>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
+        <type>String</type>
+        <format/>
         <trim_type>none</trim_type>
         <precision>-1</precision>
         <currency>$</currency>
@@ -344,262 +347,7 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>208</yloc>
-    </GUI>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-  </transform>
-  <transform>
-    <type>FilterRows</type>
-    <name>Filter rows</name>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <operator>-</operator>
-        <leftvalue>product_url</leftvalue>
-        <function>REGEXP</function>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>^https?://.*shein.*</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-        <conditions/>
-      </condition>
-    </compare>
-    <send_true_to>Replace in string</send_true_to>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-    <GUI>
-      <xloc>304</xloc>
-      <yloc>208</yloc>
-    </GUI>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-  </transform>
-  <transform>
-    <type>ReplaceString</type>
-    <name>Replace in string</name>
-    <fields>
-      <field>
-        <in_stream_name>product_id</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>sku</in_stream_name>
-        <out_stream_name>sku_clean</out_stream_name>
-        <use_regex>Y</use_regex>
-        <replace_string>[^a-zA-Z0-9]</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>spu</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>title</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>product_url</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>country</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>currency</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>price_display</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>original_price_display</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>top_category</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>category</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>category_path</in_stream_name>
-        <out_stream_name>category_leaf</out_stream_name>
-        <use_regex>Y</use_regex>
-        <replace_string>^.*>\s*(.+)$</replace_string>
-        <replace_by_string>$1</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>category_id</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>image_url</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>image_urls</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>seller_store_id</in_stream_name>
-        <out_stream_name/>
-        <use_regex>N</use_regex>
-        <replace_string/>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>collected_at</in_stream_name>
-        <out_stream_name/>
-        <use_regex>Y</use_regex>
-        <replace_string>\+.*$</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>N</whole_word>
-        <case_sensitive>N</case_sensitive>
-        <is_unicode>N</is_unicode>
-      </field>
-    </fields>
-    <distribute>N</distribute>
-    <copies>1</copies>
-    <GUI>
-      <xloc>448</xloc>
+      <xloc>208</xloc>
       <yloc>208</yloc>
     </GUI>
     <partitioning>
@@ -613,9 +361,9 @@
     <name>Table output</name>
     <connection>Postgres</connection>
     <schema/>
-    <table>products_clean</table>
-    <commit>0</commit>
-    <truncate>Y</truncate>
+    <table>staging_products_raw</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
     <only_when_have_rows>N</only_when_have_rows>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
@@ -628,17 +376,167 @@
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
     <return_field/>
-    <specify_fields>N</specify_fields>
+    <specify_fields>Y</specify_fields>
     <auto_update_table_structure>N</auto_update_table_structure>
     <always_drop_and_recreate>N</always_drop_and_recreate>
     <add_columns>N</add_columns>
     <drop_columns>N</drop_columns>
     <change_column_types>N</change_column_types>
-    <fields/>
+    <fields>
+      <field>
+        <stream_name>product_id</stream_name>
+        <column_name>product_id</column_name>
+      </field>
+      <field>
+        <stream_name>sku</stream_name>
+        <column_name>sku</column_name>
+      </field>
+      <field>
+        <stream_name>spu</stream_name>
+        <column_name>spu</column_name>
+      </field>
+      <field>
+        <stream_name>title</stream_name>
+        <column_name>title</column_name>
+      </field>
+      <field>
+        <stream_name>product_url</stream_name>
+        <column_name>product_url</column_name>
+      </field>
+      <field>
+        <stream_name>country</stream_name>
+        <column_name>country</column_name>
+      </field>
+      <field>
+        <stream_name>currency</stream_name>
+        <column_name>currency</column_name>
+      </field>
+      <field>
+        <stream_name>price</stream_name>
+        <column_name>price</column_name>
+      </field>
+      <field>
+        <stream_name>price_display</stream_name>
+        <column_name>price_display</column_name>
+      </field>
+      <field>
+        <stream_name>original_price</stream_name>
+        <column_name>original_price</column_name>
+      </field>
+      <field>
+        <stream_name>original_price_display</stream_name>
+        <column_name>original_price_display</column_name>
+      </field>
+      <field>
+        <stream_name>discount_pct</stream_name>
+        <column_name>discount_pct</column_name>
+      </field>
+      <field>
+        <stream_name>price_usd</stream_name>
+        <column_name>price_usd</column_name>
+      </field>
+      <field>
+        <stream_name>top_category</stream_name>
+        <column_name>top_category</column_name>
+      </field>
+      <field>
+        <stream_name>category</stream_name>
+        <column_name>category</column_name>
+      </field>
+      <field>
+        <stream_name>category_path</stream_name>
+        <column_name>category_path</column_name>
+      </field>
+      <field>
+        <stream_name>category_id</stream_name>
+        <column_name>category_id</column_name>
+      </field>
+      <field>
+        <stream_name>in_stock</stream_name>
+        <column_name>in_stock</column_name>
+      </field>
+      <field>
+        <stream_name>stock_indicator</stream_name>
+        <column_name>stock_indicator</column_name>
+      </field>
+      <field>
+        <stream_name>review_count</stream_name>
+        <column_name>review_count</column_name>
+      </field>
+      <field>
+        <stream_name>rating</stream_name>
+        <column_name>rating</column_name>
+      </field>
+      <field>
+        <stream_name>color_count</stream_name>
+        <column_name>color_count</column_name>
+      </field>
+      <field>
+        <stream_name>image_url</stream_name>
+        <column_name>image_url</column_name>
+      </field>
+      <field>
+        <stream_name>image_urls</stream_name>
+        <column_name>image_urls</column_name>
+      </field>
+      <field>
+        <stream_name>image_count</stream_name>
+        <column_name>image_count</column_name>
+      </field>
+      <field>
+        <stream_name>seller_store_id</stream_name>
+        <column_name>seller_store_id</column_name>
+      </field>
+      <field>
+        <stream_name>created_date</stream_name>
+        <column_name>created_date</column_name>
+      </field>
+      <field>
+        <stream_name>collected_at</stream_name>
+        <column_name>collected_at</column_name>
+      </field>
+      <field>
+        <stream_name>source_file</stream_name>
+        <column_name>source_file</column_name>
+      </field>
+      <field>
+        <stream_name>run_id</stream_name>
+        <column_name>run_id</column_name>
+      </field>
+    </fields>
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>752</xloc>
+      <yloc>208</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>Constant</type>
+    <name>Add constants</name>
+    <fields>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>shein_gb_sample_10k_2026-10-17.csv</nullif>
+        <name>source_file</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>624</xloc>
       <yloc>208</yloc>
     </GUI>
     <partitioning>
@@ -653,13 +551,13 @@
     <fields>
       <select_unspecified>N</select_unspecified>
       <meta>
-        <name>collected_at</name>
-        <rename>collected_at</rename>
-        <type>Timestamp</type>
+        <name>run_id</name>
+        <rename>run_id</rename>
+        <type>UUID</type>
         <length>-2</length>
         <precision>-2</precision>
         <storage_type/>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <conversion_mask/>
         <date_format_lenient>N</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -674,7 +572,36 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>576</xloc>
+      <xloc>496</xloc>
+      <yloc>208</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>GetVariable</type>
+    <name>Get variables</name>
+    <fields>
+      <field>
+        <name>run_id</name>
+        <variable>${RUN_ID}</variable>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>352</xloc>
       <yloc>208</yloc>
     </GUI>
     <partitioning>
@@ -685,22 +612,22 @@
   </transform>
   <order>
     <hop>
-      <from>CSV file input</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Replace in string</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
+      <from>Add constants</from>
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace in string</from>
+      <from>Select values</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CSV file input</from>
+      <to>Get variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables</from>
       <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
@@ -710,18 +637,6 @@
   <transform_error_handling>
     <error>
       <source_transform>CSV file input</source_transform>
-      <target_transform>Text file output</target_transform>
-      <is_enabled>Y</is_enabled>
-      <nr_valuename>error_row</nr_valuename>
-      <descriptions_valuename>error_description</descriptions_valuename>
-      <codes_valuename>error_code</codes_valuename>
-      <max_errors/>
-      <max_pct_errors/>
-      <min_pct_rows/>
-    </error>
-    <error>
-      <source_transform>Replace in string</source_transform>
-      <target_transform>Text file output 3</target_transform>
       <is_enabled>Y</is_enabled>
       <nr_valuename>error_row</nr_valuename>
       <descriptions_valuename>error_description</descriptions_valuename>
@@ -732,7 +647,6 @@
     </error>
     <error>
       <source_transform>Table output</source_transform>
-      <target_transform>Text file output 5</target_transform>
       <is_enabled>Y</is_enabled>
       <nr_valuename>error_row</nr_valuename>
       <descriptions_valuename>error_description</descriptions_valuename>
