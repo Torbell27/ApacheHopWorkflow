@@ -22,13 +22,13 @@
       <description/>
       <type>SPECIAL</type>
       <attributes/>
-      <xloc>50</xloc>
-      <yloc>50</yloc>
+      <xloc>208</xloc>
+      <yloc>96</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/first.hpl</filename>
+      <filename>${PROJECT_HOME}/CSVReadRaw.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -46,16 +46,16 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>first.hpl</name>
+      <name>CSVReadRaw.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
-      <xloc>144</xloc>
-      <yloc>384</yloc>
+      <xloc>288</xloc>
+      <yloc>400</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/second.hpl</filename>
+      <filename>${PROJECT_HOME}/FormatRaw.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -73,16 +73,16 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>second.hpl</name>
+      <name>FormatRaw.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
-      <xloc>272</xloc>
-      <yloc>384</yloc>
+      <xloc>400</xloc>
+      <yloc>288</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/third.hpl</filename>
+      <filename>${PROJECT_HOME}/LogCheckClean.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -100,16 +100,16 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>third.hpl</name>
+      <name>LogCheckClean.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
-      <xloc>368</xloc>
-      <yloc>384</yloc>
+      <xloc>480</xloc>
+      <yloc>416</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/fourth.hpl</filename>
+      <filename>${PROJECT_HOME}/CategoryCheck.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -127,43 +127,16 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>fourth.hpl</name>
-      <type>PIPELINE</type>
-      <attributes/>
-      <xloc>464</xloc>
-      <yloc>384</yloc>
-      <parallel>N</parallel>
-      <attributes_hac/>
-    </action>
-    <action>
-      <filename>${PROJECT_HOME}/fifth.hpl</filename>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <create_parent_folder>N</create_parent_folder>
-      <set_logfile>N</set_logfile>
-      <set_append_logfile>N</set_append_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <wait_until_finished>Y</wait_until_finished>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <run_configuration>local</run_configuration>
-      <name>fifth.hpl</name>
+      <name>CategoryCheck.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
       <xloc>576</xloc>
-      <yloc>384</yloc>
+      <yloc>288</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/sixth.hpl</filename>
+      <filename>${PROJECT_HOME}/PriceCheck.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -181,16 +154,16 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>sixth.hpl</name>
+      <name>PriceCheck.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
-      <xloc>688</xloc>
-      <yloc>384</yloc>
+      <xloc>656</xloc>
+      <yloc>416</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/seventh.hpl</filename>
+      <filename>${PROJECT_HOME}/InventoryCheck.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -208,11 +181,38 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>seventh.hpl</name>
+      <name>InventoryCheck.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
-      <xloc>784</xloc>
-      <yloc>384</yloc>
+      <xloc>768</xloc>
+      <yloc>288</yloc>
+      <parallel>N</parallel>
+      <attributes_hac/>
+    </action>
+    <action>
+      <filename>${PROJECT_HOME}/CheckSummary.hpl</filename>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <create_parent_folder>N</create_parent_folder>
+      <set_logfile>N</set_logfile>
+      <set_append_logfile>N</set_append_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <wait_until_finished>Y</wait_until_finished>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <run_configuration>local</run_configuration>
+      <name>CheckSummary.hpl</name>
+      <type>PIPELINE</type>
+      <attributes/>
+      <xloc>864</xloc>
+      <yloc>416</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
@@ -221,13 +221,13 @@
       <description/>
       <type>EndRepeat</type>
       <attributes/>
-      <xloc>1040</xloc>
-      <yloc>256</yloc>
+      <xloc>976</xloc>
+      <yloc>96</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/zero.hpl</filename>
+      <filename>${PROJECT_HOME}/RunID.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -245,16 +245,16 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>zero.hpl</name>
+      <name>RunID.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
-      <xloc>112</xloc>
-      <yloc>256</yloc>
+      <xloc>208</xloc>
+      <yloc>288</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
     <action>
-      <filename>${PROJECT_HOME}/eighth.hpl</filename>
+      <filename>${PROJECT_HOME}/PriceAPI.hpl</filename>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
@@ -272,82 +272,82 @@
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <run_configuration>local</run_configuration>
-      <name>eighth.hpl</name>
+      <name>PriceAPI.hpl</name>
       <type>PIPELINE</type>
       <attributes/>
-      <xloc>896</xloc>
-      <yloc>384</yloc>
+      <xloc>976</xloc>
+      <yloc>288</yloc>
       <parallel>N</parallel>
       <attributes_hac/>
     </action>
   </actions>
   <hops>
     <hop>
-      <from>first.hpl</from>
-      <to>second.hpl</to>
+      <from>CSVReadRaw.hpl</from>
+      <to>FormatRaw.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>second.hpl</from>
-      <to>third.hpl</to>
+      <from>FormatRaw.hpl</from>
+      <to>LogCheckClean.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>fourth.hpl</from>
-      <to>fifth.hpl</to>
+      <from>LogCheckClean.hpl</from>
+      <to>CategoryCheck.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>fifth.hpl</from>
-      <to>sixth.hpl</to>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>third.hpl</from>
-      <to>fourth.hpl</to>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>sixth.hpl</from>
-      <to>seventh.hpl</to>
+      <from>InventoryCheck.hpl</from>
+      <to>CheckSummary.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Start</from>
-      <to>zero.hpl</to>
+      <to>RunID.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>zero.hpl</from>
-      <to>first.hpl</to>
+      <from>RunID.hpl</from>
+      <to>CSVReadRaw.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>seventh.hpl</from>
-      <to>eighth.hpl</to>
+      <from>CheckSummary.hpl</from>
+      <to>PriceAPI.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>eighth.hpl</from>
+      <from>PriceAPI.hpl</from>
       <to>End repeat</to>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CategoryCheck.hpl</from>
+      <to>PriceCheck.hpl</to>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PriceCheck.hpl</from>
+      <to>InventoryCheck.hpl</to>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
       <enabled>Y</enabled>

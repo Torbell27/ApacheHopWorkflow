@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline>
+  <info>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <pipeline_type>Normal</pipeline_type>
+    <pipeline_status>-1</pipeline_status>
+    <parameters/>
+    <name>New pipeline</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <created_user>-</created_user>
+    <modified_user>-</modified_user>
+    <created_date>2026/10/30 09:06:23.643</created_date>
+    <modified_date>2026/10/30 09:06:23.643</modified_date>
+  </info>
+  <transform>
+    <type>TableInput</type>
+    <name>Read Dashboard</name>
+    <sql>SELECT
+    metric_name,
+    metric_value,
+    metric_description,
+    calculated_at
+FROM public.dashboard_summary
+ORDER BY metric_name;</sql>
+    <limit>0</limit>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <connection>Postgres</connection>
+    <lookup/>
+    <sql_from_file/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>256</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>TableInput</type>
+    <name>Read Report Overview</name>
+    <sql>SELECT
+    (SELECT COUNT(*) FROM public.products_clean) AS total_products,
+    (SELECT COUNT(*) FROM public.products_enriched) AS enriched_products,
+    (SELECT COUNT(*) FROM public.data_quality_log
+     WHERE check_status = 'PASS') AS passed_checks,
+    (SELECT COUNT(*) FROM public.data_quality_log
+     WHERE check_status = 'FAIL') AS failed_checks,
+    (SELECT ROUND(AVG(price), 2)
+     FROM public.products_clean) AS average_price_gbp,
+    (SELECT ROUND(AVG(price_usd_current), 2)
+     FROM public.products_enriched) AS average_price_usd,
+    (SELECT MAX(exchange_rate)
+     FROM public.fx_rates
+     WHERE base_currency = 'GBP'
+       AND quote_currency = 'USD') AS gbp_usd_rate;</sql>
+    <limit>0</limit>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <connection>Postgres</connection>
+    <lookup/>
+    <sql_from_file/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>384</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>Mail</type>
+    <name>Send ETL Report</name>
+    <server>server</server>
+    <destination>email</destination>
+    <destinationCc/>
+    <destinationBCc/>
+    <replyto>sender_address</replyto>
+    <replytoname>sender_name</replytoname>
+    <subject>subject</subject>
+    <include_date>Y</include_date>
+    <include_subfolders>N</include_subfolders>
+    <zipFilenameDynamic>N</zipFilenameDynamic>
+    <isFilenameDynamic>N</isFilenameDynamic>
+    <dynamicFieldname/>
+    <dynamicWildcard/>
+    <dynamicZipFilename/>
+    <sourcefilefoldername/>
+    <sourcewildcard/>
+    <connectionName/>
+    <contact_person/>
+    <contact_phone/>
+    <comment>comment</comment>
+    <include_files>N</include_files>
+    <zip_files>N</zip_files>
+    <zip_name/>
+    <zip_limit_size>0</zip_limit_size>
+    <use_auth>Y</use_auth>
+    <usexoauth2>N</usexoauth2>
+    <auth_user>authuser</auth_user>
+    <auth_password>Encrypted 2be98afc86aa7f2e4aa0cba78ce93bcc9</auth_password>
+    <only_comment>N</only_comment>
+    <use_HTML>Y</use_HTML>
+    <use_secure_auth>Y</use_secure_auth>
+    <use_Priority>Y</use_Priority>
+    <port>port</port>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>TLS</secureconnectiontype>
+    <encoding>UTF-8</encoding>
+    <replyToAddresses>replyto</replyToAddresses>
+    <embeddedimages/>
+    <attachContentFromField>N</attachContentFromField>
+    <attachContentField/>
+    <attachContentFileNameField/>
+    <include_message_in_output>N</include_message_in_output>
+    <message_output_field/>
+    <check_server_identity>Y</check_server_identity>
+    <trusted_hosts/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>512</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>Constant</type>
+    <name>Add constants</name>
+    <fields>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>torbell1337@gmail.com</nullif>
+        <name>email</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>UK Product Intelligence ETL</nullif>
+        <name>sender_name</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>torbell1337@gmail.com</nullif>
+        <name>sender_address</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>torbell1337@gmail.com</nullif>
+        <name>replyto</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>smtp.gmail.com</nullif>
+        <name>server</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>587</nullif>
+        <name>port</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>torbell1337@gmail.com</nullif>
+        <name>authuser</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>rbtp zwbw fhlj xhsi</nullif>
+        <name>authpass</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>UK Product Intelligence — ETL Report</nullif>
+        <name>subject</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>&lt;h2>UK Product Intelligence — ETL Report&lt;/h2>&lt;p>ETL pipeline completed successfully.&lt;/p>&lt;h3>Product Statistics&lt;/h3>&lt;ul>&lt;li>Total products: 10,000&lt;/li>&lt;li>Enriched products:10,000&lt;/li>&lt;li>Average price GBP: 10.84&lt;/li>&lt;li>Average price USD: 14.45&lt;/li>&lt;/ul>&lt;h3>Currency Exchange&lt;/h3>&lt;ul>&lt;li>GBP/USD rate: 1.3327&lt;/li>&lt;li>Source: Frankfurter API&lt;/li>&lt;/ul>&lt;h3>Data Quality&lt;/h3>&lt;ul>&lt;li>Quality checks: 7&lt;/li>&lt;li>Status: PASS&lt;/li>&lt;/ul>&lt;p>Report generated automatically by Apache Hop.&lt;/p></nullif>
+        <name>comment</name>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>512</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>TableInput</type>
+    <name>Table input</name>
+    <sql>SELECT 1 AS test_id</sql>
+    <limit>0</limit>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <connection>Postgres</connection>
+    <lookup/>
+    <sql_from_file/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>512</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <order>
+    <hop>
+      <from>Table input</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Send ETL Report</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <notepads/>
+  <attributes/>
+  <transform_error_handling/>
+</pipeline>
